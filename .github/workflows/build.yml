@@ -38,12 +38,12 @@ jobs:
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release src/${{ env.TEST_PROJECT_NAME }}/${{ env.TEST_PROJECT_NAME }}.csproj --no-restore
+        run: dotnet build -c Release src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj --no-restore
       - name: Test
         run: dotnet test -c Release test/${{ env.TEST_PROJECT_NAME }}
       - name: Pack
         if: matrix.os == 'windows-latest'
-        run: dotnet pack -v normal -c Release --no-restore -p:PackageVersion=$GITHUB_RUN_ID src/${{ env.TEST_PROJECT_NAME }}/${{ env.TEST_PROJECT_NAME }}.csproj
+        run: dotnet pack -v normal -c Release --no-restore -p:PackageVersion=$GITHUB_RUN_ID src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj
       - name: Upload Artifact
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v2
