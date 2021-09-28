@@ -35,7 +35,7 @@ jobs:
         with:
           dotnet-version: 2.0.x
       - name: Setup .NET Framework
-        uses: uses: warrenbuckley/Setup-MSBuild@v1
+        uses:  warrenbuckley/Setup-MSBuild@v1
       - name: Restore
         run: dotnet restore
       - name: Build
