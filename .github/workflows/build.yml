@@ -10,8 +10,11 @@ env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   # Project name to pack and publish
   PROJECT_NAME: Aqovia.HttpClient.CacheProvider
+  DEMO_PROJECT_NAME: Aqovia.HttpClient.CacheProvider.Demo
   TEST_PROJECT_NAME: Aqovia.HttpClient.CacheProvider.Tests
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # Official NuGet Feed settings
@@ -32,17 +35,15 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 2.0.x
-      - name: Setup .NET Framework
-        uses: warrenbuckley/Setup-MSBuild@v1
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release --no-restore
+        run: dotnet build -c Release src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj --no-restore
       - name: Test
         run: dotnet test -c Release tests/${{ env.TEST_PROJECT_NAME }}
       - name: Pack
         if: matrix.os == 'windows-latest'
-        run: dotnet pack -v normal -c Release --no-restore -p:PackageVersion=$GITHUB_RUN_ID src/$PROJECT_NAME/$PROJECT_NAME.csproj
+        run: dotnet pack -v normal -c Release --no-restore -p:PackageVersion=$GITHUB_RUN_ID src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj
       - name: Upload Artifact
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v2
