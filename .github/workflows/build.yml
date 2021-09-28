@@ -35,7 +35,7 @@ jobs:
       - name: Setup .NET Framework
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 4.6.1
+          dotnet-version: 3.1.301
       - name: Restore
         run: dotnet restore
       - name: Build
@@ -75,7 +75,7 @@ jobs:
       - name: Setup .NET Framework Build
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version:  4.6.1
+          dotnet-version:  3.1.301
       - name: Create Release NuGet package
         run: |
           arrTag=(${GITHUB_REF//\// })
