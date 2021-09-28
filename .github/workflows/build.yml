@@ -35,22 +35,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 2.0.x
-      - name: Setup .NET Framework
-        uses:  warrenbuckley/Setup-MSBuild@v1
-
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.0.2
-     
-      - name: Restore NuGet Packages
-        run: nuget restore src/${{ env.DEMO_PROJECT_NAME }}
- 
-      - name: Build and Publish Web App
-        run: msbuild src/${{ env.DEMO_PROJECT_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
-
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release src/${{ env.PROJECT_NAME }} --no-restore
+        run: dotnet build -c Release src/$PROJECT_NAME/$PROJECT_NAME.csproj --no-restore
       - name: Test
         run: dotnet test -c Release test/${{ env.TEST_PROJECT_NAME }}
       - name: Pack
