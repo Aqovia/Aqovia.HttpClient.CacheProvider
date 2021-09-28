@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        os: [  windows-latest ]
     steps:
       - name: Display event name
         run: echo ${{ github.event_name }}
@@ -39,10 +39,10 @@ jobs:
       - name: Test
         run: dotnet test -c Release test/${{ env.TEST_PROJECT_NAME }}
       - name: Pack
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'windows-latest'
         run: dotnet pack -v normal -c Release --no-restore -p:PackageVersion=$GITHUB_RUN_ID src/$PROJECT_NAME/$PROJECT_NAME.csproj
       - name: Upload Artifact
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v2
         with:
           name: nupkg
