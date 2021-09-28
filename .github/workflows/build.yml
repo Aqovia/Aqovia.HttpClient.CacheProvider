@@ -14,6 +14,7 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   # Project name to pack and publish
   PROJECT_NAME: Aqovia.HttpClient.CacheProvider
+  DEMO_PROJECT_NAME: Aqovia.HttpClient.CacheProvider.Demo
   TEST_PROJECT_NAME: Aqovia.HttpClient.CacheProvider.Tests
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # Official NuGet Feed settings
@@ -36,10 +37,20 @@ jobs:
           dotnet-version: 2.0.x
       - name: Setup .NET Framework
         uses:  warrenbuckley/Setup-MSBuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.2
+     
+      - name: Restore NuGet Packages
+        run: nuget restore src/${{ env.DEMO_PROJECT_NAME }}
+ 
+      - name: Build and Publish Web App
+        run: msbuild src/${{ env.DEMO_PROJECT_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release --no-restore
+        run: dotnet build -c Release src/${{ env.PROJECT_NAME }} --no-restore
       - name: Test
         run: dotnet test -c Release test/${{ env.TEST_PROJECT_NAME }}
       - name: Pack
