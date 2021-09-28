@@ -23,6 +23,7 @@ jobs:
     strategy:
       matrix:
         os: [  windows-latest ]
+        dotnet-version: ['2.0.x', '4.6.1']
     steps:
       - name: Display event name
         run: echo ${{ github.event_name }}
@@ -31,7 +32,7 @@ jobs:
       - name: Setup .NET Standard
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 2.0.x
+          dotnet-version: matrix.dotnet-version
       - name: Restore
         run: dotnet restore
       - name: Build
@@ -67,7 +68,7 @@ jobs:
       - name: Setup .NET Build
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 2.0.x
+          dotnet-version:  matrix.dotnet-version
       - name: Create Release NuGet package
         run: |
           arrTag=(${GITHUB_REF//\// })
