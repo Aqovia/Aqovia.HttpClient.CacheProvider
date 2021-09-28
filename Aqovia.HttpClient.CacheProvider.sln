@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aqovia.HttpClient.CacheProv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aqovia.HttpClient.CacheProvider.Demo", "src\Aqovia.HttpClient.CacheProvider.Demo\Aqovia.HttpClient.CacheProvider.Demo.csproj", "{92E50B03-8833-4747-8441-FDA42F1D3F5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F81BB01F-9653-419F-8464-92DC6BD794CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aqovia.HttpClient.CacheProvider.Tests", "tests\Aqovia.HttpClient.CacheProvider.Tests\Aqovia.HttpClient.CacheProvider.Tests.csproj", "{A3631A3B-91A9-41DF-909F-884658BB2261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{92E50B03-8833-4747-8441-FDA42F1D3F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E50B03-8833-4747-8441-FDA42F1D3F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E50B03-8833-4747-8441-FDA42F1D3F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3631A3B-91A9-41DF-909F-884658BB2261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3631A3B-91A9-41DF-909F-884658BB2261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3631A3B-91A9-41DF-909F-884658BB2261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3631A3B-91A9-41DF-909F-884658BB2261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A33DA069-FC68-498C-A217-8149FC40FEDC} = {FBFF895C-F5FF-4B06-8D15-84D64DFA548B}
 		{92E50B03-8833-4747-8441-FDA42F1D3F5F} = {FBFF895C-F5FF-4B06-8D15-84D64DFA548B}
+		{A3631A3B-91A9-41DF-909F-884658BB2261} = {F81BB01F-9653-419F-8464-92DC6BD794CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B50F57FF-E970-4589-9FEE-86727E0413E0}
