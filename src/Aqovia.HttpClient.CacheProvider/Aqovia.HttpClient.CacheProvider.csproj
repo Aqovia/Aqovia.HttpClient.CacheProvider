@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<PackageId>Aqovia.HttpClient.CacheProvider</PackageId>
+	<Description>Caches API responses to InMemoryCache by default. If RedisCache connection string is provided then it caches all responses to Azure Redis Cache. It also monitor all the events to Azure Application Insight</Description>
+	<IsPackable>true</IsPackable>
+	<RepositoryType>git</RepositoryType>
+	<RepositoryUrl>https://github.com/Aqovia/Aqovia.HttpClient.CacheProvider</RepositoryUrl>
+	  
   </PropertyGroup>
 
   <ItemGroup>
