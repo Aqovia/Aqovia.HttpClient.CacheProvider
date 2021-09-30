@@ -189,8 +189,8 @@ namespace Aqovia.HttpClient.CacheProvider.Cache
         {
             get
             {
-                var endpoint = (System.Net.DnsEndPoint)GetEndPoint()[0];
-                IServer server = GetServer(endpoint.Host, endpoint.Port);
+                var endpoint = (System.Net.IPEndPoint)GetEndPoint()[0];
+                IServer server = GetServer(endpoint.Address.ToString(), endpoint.Port);
                 return server.Keys().Select(_ => _.ToString());
             }
         }
@@ -198,6 +198,5 @@ namespace Aqovia.HttpClient.CacheProvider.Cache
         {
             return RedisRetryPolicy.Execute(() => Connection.GetEndPoints());
         }
-        public TelemetryClient TelemetryClient { get; set; }
     }
 }
