@@ -14,7 +14,7 @@ namespace Aqovia.HttpClient.CacheProvider.Tests
    public class RedisCacheTest
     {
         private IEnumerable<string> allKeys = null;
-        private ICacheOutput cache = new RedisCache("127.0.0.1:6379,ssl=false");
+        private ICacheOutput cache = new RedisCache("inxn-shared-redis-a.redis.cache.windows.net:6380,password=fOyObpV8jCPahv29VVylXh7iDtDgw4IhgUxtooIVEW4=,ssl=True,abortConnect=False");
         [Scenario]
         public void AddCache_And_Return_Allkeys_FromRedisCache()
         {
