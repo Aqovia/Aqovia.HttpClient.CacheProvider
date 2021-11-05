@@ -7,8 +7,9 @@ namespace Aqovia.CachingHttpClient.Extensions
 {
     public static class AspNetCoreExtensions
     {
-        public static IServiceCollection AddCachingHttpClient(this IServiceCollection services, CachingConfiguration cachingOptions)
+        public static IServiceCollection AddCachingHttpClient(this IServiceCollection services, CachingConfiguration cachingOptions = null)
         {
+            cachingOptions = cachingOptions ?? new CachingConfiguration();
             var cacheStore = string.IsNullOrWhiteSpace(cachingOptions.RedisConnectionString)
                 ? CachingHelpers.CreateInMemoryCacheStore(cachingOptions.MinExpiry)
                 : CachingHelpers.CreateRedisCacheStore(cachingOptions.RedisConnectionString, cachingOptions.MinExpiry);
