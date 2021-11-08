@@ -27,9 +27,10 @@ Build status
 The project contains the following directory structure
 
 ```
+examples/
+    Aqovia.CachingHttpClient.AspNetCoreApi
 src/
     Aqovia.CachingHttpClient
-    Aqovia.CachingHttpClient.AspNetCoreApi
 test/
     Aqovia.CachingHttpClient.Tests
 ```
@@ -38,7 +39,7 @@ test/
 
 Contains the source library code providing a helper class to create ICacheStore and HttpClient with a default CacheStore.
 
-### src/Aqovia.CachingHttpClient.AspNetCoreApi
+### examples/Aqovia.CachingHttpClient.AspNetCoreApi
 
 Example ASP.NET Core API to enable testing of the caching HttpClient
 

@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Aqovia.CachingHttpClient.AspNetCoreApi\Aqovia.CachingHttpClient.AspNetCoreApi.csproj" />
+    <ProjectReference Include="..\..\examples\Aqovia.CachingHttpClient.AspNetCoreApi\Aqovia.CachingHttpClient.AspNetCoreApi.csproj" />
     <ProjectReference Include="..\..\src\Aqovia.CachingHttpClient\Aqovia.CachingHttpClient.csproj" />
   </ItemGroup>
 

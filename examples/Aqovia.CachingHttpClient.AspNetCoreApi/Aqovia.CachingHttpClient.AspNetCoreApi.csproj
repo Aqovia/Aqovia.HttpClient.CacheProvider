@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aqovia.CachingHttpClient\Aqovia.CachingHttpClient.csproj" />
+    <ProjectReference Include="..\..\src\Aqovia.CachingHttpClient\Aqovia.CachingHttpClient.csproj" />
   </ItemGroup>
 
 </Project>
